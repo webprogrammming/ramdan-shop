@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lombok Soul | Goods & Travels</title>
+    <title>Lombok Soul | Authentic Goods & Travels</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -12,148 +11,207 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0e7490', // Cyan-700 (Nuansa Laut)
-                        secondary: '#b45309', // Amber-700 (Nuansa Tenun/Bumi)
+                        primary: '#0ea5e9', // Sky Blue sesuai referensi
+                        darkBg: '#0f172a',
+                    },
+                    fontFamily: {
+                        serif: ['Georgia', 'serif'],
                     }
                 }
             }
         }
     </script>
+    <style>
+        .floating { animation: float 3s ease-in-out infinite; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
 </head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300">
 
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-
-    <nav class="fixed w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b dark:border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
-            <div class="font-bold text-2xl text-primary tracking-tighter">LOMBOK<span class="text-secondary">SOUL</span>
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-primary rounded-full"></div>
+                <span class="font-bold text-xl tracking-tight">LOMBOK<span class="text-primary">SOUL</span></span>
             </div>
-
-            <div class="flex items-center gap-4">
-                <select id="langSwitcher"
-                    class="bg-transparent text-sm border border-gray-300 dark:border-gray-700 rounded px-2 py-1">
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#" data-i18n="nav-home" class="hover:text-primary">Home</a>
+                <a href="#features" data-i18n="nav-features" class="hover:text-primary">Features</a>
+                <a href="#video" data-i18n="nav-video" class="hover:text-primary">Video</a>
+                <a href="#testimonials" data-i18n="nav-feedback" class="hover:text-primary">Feedback</a>
+                <select id="langSwitcher" class="bg-transparent border-none focus:ring-0 cursor-pointer">
                     <option value="id">ID</option>
                     <option value="en">EN</option>
                 </select>
-
-                <button id="themeToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800">
-                    <span id="themeIcon">🌙</span>
-                </button>
-
-                <a href="https://wa.me/yournumber"
-                    class="hidden md:block bg-primary text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-opacity-90 transition">Contact
-                    Us</a>
+                <button id="themeToggle" class="text-xl">🌙</button>
             </div>
+            <button class="bg-primary text-white px-6 py-2 rounded-md font-bold text-sm hover:shadow-lg transition">BOOK NOW</button>
         </div>
     </nav>
 
-    <header class="pt-32 pb-16 px-4 text-center">
-        <h1 data-i18n="hero-title" class="text-4xl md:text-6xl font-extrabold mb-4">Kenakan Karyanya, Jelajahi Alamnya.
-        </h1>
-        <p data-i18n="hero-desc" class="max-w-2xl mx-auto text-gray-600 dark:text-gray-400 mb-8">Gabungan produk otentik
-            lokal Lombok dan perjalanan eksklusif yang tak terlupakan.</p>
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="#goods" data-i18n="btn-shop"
-                class="bg-secondary text-white px-8 py-3 rounded-lg font-semibold">Belanja Produk</a>
-            <a href="#travel" data-i18n="btn-travel"
-                class="border border-primary text-primary px-8 py-3 rounded-lg font-semibold">Pesan Paket Tour</a>
-        </div>
-    </header>
-
-    <section id="goods" class="max-w-7xl mx-auto px-4 py-20">
-        <h2 data-i18n="section-goods" class="text-3xl font-bold mb-10 border-l-4 border-secondary pl-4">Produk Lokal
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="group">
-                <div class="aspect-square bg-gray-200 dark:bg-gray-800 rounded-2xl overflow-hidden mb-4">
-                    <img src="https://images.unsplash.com/photo-1621644043242-45e396696b05?auto=format&fit=crop&q=80&w=500"
-                        alt="Sarung" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                </div>
-                <h3 class="font-bold text-lg">Sarung Tenun Sukarara</h3>
-                <p class="text-secondary font-semibold">Rp 350.000</p>
-                <button
-                    class="mt-4 w-full border border-gray-300 dark:border-gray-700 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition">Detail</button>
+    <section class="pt-40 pb-20 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2">
+            <span class="text-primary font-bold tracking-widest text-xs uppercase" data-i18n="hero-sub">Feel the Heritage —</span>
+            <h1 class="text-5xl md:text-6xl font-serif font-bold mt-4 leading-tight" data-i18n="hero-title">Best & Smart Local Product For You</h1>
+            <p class="mt-6 text-gray-500 dark:text-gray-400 max-w-md leading-relaxed" data-i18n="hero-desc">Dapatkan koleksi fashion etnik terbaik dan paket perjalanan eksklusif langsung dari jantung pulau Lombok.</p>
+            <div class="mt-10 flex gap-4">
+                <button class="bg-primary text-white px-8 py-4 rounded-md font-bold hover:bg-opacity-90 transition shadow-lg shadow-blue-200 dark:shadow-none" data-i18n="btn-cart">Add To Cart</button>
+                <button class="border border-gray-200 dark:border-gray-700 px-8 py-4 rounded-md font-bold hover:bg-gray-50 dark:hover:bg-gray-800 transition" data-i18n="btn-visit">Visit Now</button>
             </div>
+        </div>
+        <div class="md:w-1/2 mt-16 md:mt-0 flex justify-center relative">
+            <div class="absolute w-72 h-72 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl -z-10"></div>
+            <img src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800" alt="Product" class="w-4/5 floating rounded-2xl shadow-2xl">
         </div>
     </section>
 
-    <section id="travel" class="bg-gray-50 dark:bg-gray-800/50 py-20">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 data-i18n="section-travel" class="text-3xl font-bold mb-10 border-l-4 border-primary pl-4">Paket Tour
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div
-                    class="bg-white dark:bg-gray-900 p-6 rounded-3xl shadow-sm border dark:border-gray-800 flex flex-col md:flex-row gap-6">
-                    <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&q=80&w=300"
-                        alt="Gili" class="w-full md:w-40 h-40 object-cover rounded-2xl">
+    <section class="py-10 border-y dark:border-gray-800 opacity-50 grayscale hover:grayscale-0 transition flex flex-wrap justify-center gap-12 grayscale">
+        <span class="font-bold text-xl italic text-gray-400">SasakCraft</span>
+        <span class="font-bold text-xl italic text-gray-400">RinjaniExpeditions</span>
+        <span class="font-bold text-xl italic text-gray-400">MandalikaResort</span>
+        <span class="font-bold text-xl italic text-gray-400">LocalArtisan</span>
+    </section>
+
+    <section id="features" class="py-24 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+        <div class="md:w-1/2">
+            <div class="relative inline-block">
+                <img src="https://images.unsplash.com/photo-1605371924599-2d0365da1ae0?q=80&w=600" alt="Features" class="rounded-3xl shadow-xl">
+                <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-500/10 -z-10 rounded-2xl"></div>
+            </div>
+        </div>
+        <div class="md:w-1/2">
+            <h2 class="text-4xl font-serif font-bold mb-10" data-i18n="feat-title">Outstanding Features</h2>
+            <div class="space-y-8">
+                <div class="flex gap-4 p-6 rounded-2xl bg-blue-50/50 dark:bg-gray-800/50 border border-transparent hover:border-primary transition group">
+                    <div class="w-12 h-12 bg-white dark:bg-gray-700 rounded-lg flex items-center justify-center shadow-sm group-hover:bg-primary group-hover:text-white transition">✨</div>
                     <div>
-                        <span class="text-xs font-bold text-primary tracking-widest uppercase">Popular</span>
-                        <h3 class="text-xl font-bold mb-2">3 Gili Island Hopping</h3>
-                        <p data-i18n="travel-1-desc" class="text-sm text-gray-600 dark:text-gray-400 mb-4">Jelajahi
-                            keindahan Gili Trawangan, Meno, dan Air dalam satu hari.</p>
-                        <a href="#" class="text-primary font-bold inline-flex items-center gap-2">Book Now
-                            <span>&rarr;</span></a>
+                        <h4 class="font-bold text-lg" data-i18n="feat-1-h">Handmade Quality</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1" data-i18n="feat-1-p">Setiap kain ditenun manual dengan pewarna alami oleh pengrajin lokal.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 p-6 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-primary transition group">
+                    <div class="w-12 h-12 bg-blue-50 dark:bg-gray-800 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-white transition">🌍</div>
+                    <div>
+                        <h4 class="font-bold text-lg" data-i18n="feat-2-h">Local Tour Guide</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1" data-i18n="feat-2-p">Pemandu asli Lombok yang tahu rute tersembunyi dan cerita budaya.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center border-t dark:border-gray-800">
-        <p class="text-sm text-gray-500">© 2024 Lombok Soul MVP. Built for the community.</p>
+    <section id="video" class="py-24 px-6 max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-16">
+        <div class="md:w-1/2">
+            <h2 class="text-4xl font-serif font-bold mb-6" data-i18n="vid-title">Watch Our Story Now</h2>
+            <p class="text-gray-500 dark:text-gray-400 mb-8" data-i18n="vid-desc">Lihat bagaimana proses pembuatan aksesoris kami dan cuplikan keindahan alam Gili Trawangan.</p>
+            <button class="bg-primary text-white px-8 py-3 rounded-md font-bold shadow-lg" data-i18n="btn-cart">Add To Cart</button>
+        </div>
+        <div class="md:w-1/2 relative group cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=800" class="rounded-3xl shadow-2xl brightness-75 group-hover:brightness-90 transition">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-20 h-20 bg-primary/90 text-white rounded-full flex items-center justify-center text-2xl pl-1 animate-pulse">▶</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-4xl font-serif font-bold text-center mb-16" data-i18n="test-title">People Says</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 rounded-3xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition">
+                <div class="flex items-center gap-4 mb-6">
+                    <img src="https://i.pravatar.cc/150?u=1" class="w-12 h-12 rounded-full">
+                    <div>
+                        <h5 class="font-bold text-sm">Ahmad Setiadi</h5>
+                        <p class="text-xs text-gray-400">Traveler</p>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 leading-relaxed italic">"Paket tournya sangat rapi dan kain tenun yang saya beli kualitasnya juara!"</p>
+            </div>
+            </div>
+    </section>
+
+    <footer class="bg-blue-50/50 dark:bg-gray-800/30 pt-20 pb-10 px-6 border-t dark:border-gray-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="w-6 h-6 bg-primary rounded-full"></div>
+                    <span class="font-bold text-lg tracking-tight">LOMBOK<span class="text-primary text-secondary">SOUL</span></span>
+                </div>
+                <p class="text-sm text-gray-500 leading-relaxed">Website ini adalah wadah bagi pengrajin lokal dan pecinta alam Lombok.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 text-sm uppercase tracking-widest">Information</h4>
+                <ul class="text-sm text-gray-500 space-y-4">
+                    <li><a href="#" class="hover:text-primary">Our Story</a></li>
+                    <li><a href="#" class="hover:text-primary">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-primary">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 text-sm uppercase tracking-widest">Our Social</h4>
+                <ul class="text-sm text-gray-500 space-y-4">
+                    <li><a href="#" class="hover:text-primary">Instagram</a></li>
+                    <li><a href="#" class="hover:text-primary">Twitter</a></li>
+                    <li><a href="#" class="hover:text-primary">YouTube</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 text-sm uppercase tracking-widest">Opening Time</h4>
+                <p class="text-sm text-gray-500">Mon to Sat: 8:00 am to 6:00 pm</p>
+                <p class="text-sm text-gray-500 mt-2">Sun: 10:00 am to 4:00 pm</p>
+            </div>
+        </div>
+        <div class="text-center border-t dark:border-gray-800 pt-10 text-xs text-gray-400">
+            &copy; 2024 Lombok Soul. All rights reserved.
+        </div>
     </footer>
 
     <script>
-        // 1. DARK MODE LOGIC
+        // DARK MODE
         const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-
         themeToggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
-            const isDark = document.documentElement.classList.contains('dark');
-            themeIcon.innerText = isDark ? '☀️' : '🌙';
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeToggle.innerText = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
         });
 
-        // 2. MULTI-LANGUAGE LOGIC
+        // MULTI LANGUAGE
         const translations = {
             id: {
-                "hero-title": "Kenakan Karyanya, Jelajahi Alamnya.",
-                "hero-desc": "Gabungan produk otentik lokal Lombok dan perjalanan eksklusif yang tak terlupakan.",
-                "btn-shop": "Belanja Produk",
-                "btn-travel": "Pesan Paket Tour",
-                "section-goods": "Produk Lokal",
-                "section-travel": "Paket Tour",
-                "travel-1-desc": "Jelajahi keindahan Gili Trawangan, Meno, dan Air dalam satu hari."
+                "nav-home": "Beranda", "nav-features": "Fitur", "nav-video": "Video", "nav-feedback": "Ulasan",
+                "hero-sub": "Rasakan Warisannya —",
+                "hero-title": "Produk Lokal Terbaik & Pintar Untuk Anda",
+                "hero-desc": "Dapatkan koleksi fashion etnik terbaik dan paket perjalanan eksklusif langsung dari jantung pulau Lombok.",
+                "btn-cart": "Tambah Keranjang", "btn-visit": "Kunjungi Sekarang",
+                "feat-title": "Fitur Unggulan",
+                "feat-1-h": "Kualitas Buatan Tangan", "feat-1-p": "Setiap kain ditenun manual dengan pewarna alami oleh pengrajin lokal.",
+                "feat-2-h": "Pemandu Lokal", "feat-2-p": "Pemandu asli Lombok yang tahu rute tersembunyi dan cerita budaya.",
+                "vid-title": "Tonton Cerita Kami", "vid-desc": "Lihat bagaimana proses pembuatan aksesoris kami dan cuplikan keindahan alam Gili Trawangan.",
+                "test-title": "Kata Mereka"
             },
             en: {
-                "hero-title": "Wear the Craft, Explore the Nature.",
-                "hero-desc": "A blend of authentic local Lombok products and unforgettable exclusive journeys.",
-                "btn-shop": "Shop Products",
-                "btn-travel": "Book a Tour",
-                "section-goods": "Local Goods",
-                "section-travel": "Tour Packages",
-                "travel-1-desc": "Explore the beauty of Gili Trawangan, Meno, and Air in one day."
+                "nav-home": "Home", "nav-features": "Features", "nav-video": "Video", "nav-feedback": "Feedback",
+                "hero-sub": "Feel the Heritage —",
+                "hero-title": "Best & Smart Local Product For You",
+                "hero-desc": "Get the best ethnic fashion collection and exclusive travel packages directly from the heart of Lombok island.",
+                "btn-cart": "Add To Cart", "btn-visit": "Visit Now",
+                "feat-title": "Outstanding Features",
+                "feat-1-h": "Handmade Quality", "feat-1-p": "Every fabric is handwoven with natural dyes by local artisans.",
+                "feat-2-h": "Local Tour Guide", "feat-2-p": "Native Lombok guides who know the hidden routes and cultural stories.",
+                "vid-title": "Watch Our Story Now", "vid-desc": "See the process of our accessory making and snippets of Gili Trawangan's natural beauty.",
+                "test-title": "People Says"
             }
         };
 
-        const langSwitcher = document.getElementById('langSwitcher');
-        langSwitcher.addEventListener('change', (e) => {
-            updateLanguage(e.target.value);
-        });
-
-        function updateLanguage(lang) {
+        document.getElementById('langSwitcher').addEventListener('change', (e) => {
+            const lang = e.target.value;
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 el.innerText = translations[lang][key];
             });
-        }
-
-        // Initialize theme and language
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark');
-            themeIcon.innerText = '☀️';
-        }
+        });
     </script>
 </body>
-
 </html>
